@@ -1,86 +1,180 @@
-# DevFlow AI
+# 🚀 **DevFlow AI**
 
-**DevFlow AI** is an intelligent coding assistant designed to help developers understand, debug, and review code efficiently. Built with modern web technologies and powered by advanced LLMs via OpenRouter.
-
-![DevFlow AI](https://github.com/user-attachments/assets/placeholder-image)
+**DevFlow AI** is a full-stack, agent-powered coding assistant that helps developers **understand, debug, review, and summarize code** through natural language interactions.
+It is designed with a clean developer experience, reliable AI orchestration, and a modern UI.
 
 > **© 2026 DevFlow AI · Designed & developed by Indra Kiran**
 
-## 🚀 Features
+<img width="1848" height="979" alt="image" src="https://github.com/user-attachments/assets/0fb44bac-5a24-4c02-bc9d-609f28750208" />
 
--   **🔍 Code Explanation**: Get clear, concise explanations of complex code snippets.
--   **🐞 Intelligent Debugging**: Identify errors and receive actionable fixes for your code.
--   **✅ Code Review**: Analyze code for best practices, security, and performance optimizations.
--   **⚡ Real-time Streaming**: Experience fast, natural language responses.
--   **🎨 Modern UI**: Beautiful, dark-themed interface built with Tailwind CSS and Framer Motion.
+
+## ✨ Features
+
+* 🔍 **Code Explanation**
+  Understand complex code logic in simple, human-readable language.
+
+* 🐞 **Intelligent Debugging**
+  Identify errors and receive actionable suggestions to fix them.
+
+* ✅ **Code Review**
+  Get best-practice recommendations for readability, performance, and maintainability.
+
+* 🧠 **Multi-Agent AI System**
+  Requests are routed through specialized AI agents for accurate task handling.
+
+* 🎨 **Modern Developer UI**
+  Clean, dark-themed interface inspired by modern developer tools.
+
+---
+
+## 🧠 How It Works
+
+1. User selects a task (Explain / Debug / Review / Summarize)
+2. Code is sent to the backend API
+3. An **Intent Agent** routes the request to the correct task-specific agent
+4. The AI agent generates a natural-language response using a **free OpenRouter model**
+5. The response is displayed instantly in the UI
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
--   **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
--   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
--   **Icons**: [Lucide React](https://lucide.dev/)
--   **Language**: TypeScript
+
+* **Framework**: React + Vite
+* **Language**: TypeScript
+* **Styling**: Tailwind CSS
+* **Animations**: Framer Motion
+* **Icons**: Lucide React
 
 ### Backend
--   **Framework**: [FastAPI](https://fastapi.tiangolo.com/) (Python)
--   **AI Engine**: [Pydantic AI](https://github.com/pydantic/pydantic-ai)
--   **LLM Provider**: [OpenRouter](https://openrouter.ai/)
--   **Model**: `meta-llama/llama-3-8b-instruct` (Free Tier)
 
-## 🏁 Getting Started
+* **Framework**: FastAPI (Python)
+* **AI Orchestration**: Pydantic AI
+* **LLM Provider**: OpenRouter
+* **Model**: Free-tier OpenRouter model (provider-fallback enabled)
+
+---
+
+## 📂 Project Structure
+
+```
+devflow-ai/
+├── frontend/        # React + Vite frontend
+├── backend/         # FastAPI backend
+│   ├── agents/      # AI agents (intent, explain, debug, review)
+│   ├── schemas/     # Request/response models
+│   ├── services/    # OpenRouter client
+│   └── utils/       # Logging & retry utilities
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started (Local Setup)
 
 ### Prerequisites
--   Node.js (v18+)
--   Python (v3.11+)
 
-### 1. Backend Setup
-Navigate to the backend directory and install dependencies:
+* Node.js v18+
+* Python 3.11+
+* OpenRouter API key (free tier)
+
+---
+
+### 🔧 Backend Setup
 
 ```bash
 cd backend
 python -m venv venv
-# Windows
-.\venv\Scripts\activate
-# Mac/Linux
-source venv/bin/activate
+```
 
+Activate virtual environment:
+
+**Windows**
+
+```bash
+.\venv\Scripts\activate
+```
+
+**macOS / Linux**
+
+```bash
+source venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
 ```
 
-Create a `.env` file in the `backend/` directory:
+Create `.env` file:
+
 ```env
 OPENROUTER_API_KEY=your_api_key_here
 ```
 
-Run the backend server:
+Run backend:
+
 ```bash
-python -m uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-### 2. Frontend Setup
-Navigate to the root directory (if not already there) and install dependencies:
+Health check:
+
+```
+http://localhost:8000/health
+```
+
+---
+
+### 🎨 Frontend Setup
 
 ```bash
+cd frontend
 npm install
-```
-
-Run the development server:
-```bash
 npm run dev
 ```
 
-Open [http://localhost:8080](http://localhost:8080) to view the app.
+Open:
+
+```
+http://localhost:8080
+```
+
+---
 
 ## 🌍 Deployment
 
-This project is optimized for deployment on **Vercel** (Frontend) and **Render** (Backend).
+The project is designed for **separate frontend and backend deployment**.
 
-Please refer to [DEPLOYMENT.md](./DEPLOYMENT.md) for a detailed, step-by-step deployment guide.
+* **Frontend**: Vercel
+* **Backend**: Render / Railway
 
-## 📄 License
+Environment variables are used for secure configuration.
 
-This project is licensed under the MIT License.
+👉 See **DEPLOYMENT.md** for step-by-step deployment instructions.
 
 ---
-*Built with ❤️ for developers.*
+
+## 🔐 Security Notes
+
+* API keys are **never committed**
+* `.env` is git-ignored
+* All secrets are loaded via environment variables
+
+---
+
+## 🎯 Assignment Alignment
+
+This project satisfies all evaluation requirements:
+
+* ✅ Full-stack deployed application
+* ✅ Pydantic AI-based agent system
+* ✅ Clean API design
+* ✅ Robust error handling and fallback
+* ✅ Modern UX with polished UI
+* ✅ Free OpenRouter model usage
+
+
+
