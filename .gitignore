@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-electron/
+.env
+.env.local
+.DS_Store
+backend/__pycache__/
+backend/*.py[cod]
+backend/*.log
+backend/.venv
+backend/env
+backend/venv
+.vscode/
